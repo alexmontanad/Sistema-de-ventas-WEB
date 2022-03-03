@@ -23,6 +23,7 @@ public class Controlador extends HttpServlet {
 
     EmpleadoDTO em = new EmpleadoDTO();
     EmpleadoDAO emdao = new EmpleadoDAO();
+    int ide;
 
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
@@ -60,8 +61,30 @@ public class Controlador extends HttpServlet {
                     request.getRequestDispatcher("Controlador?menu=Empleado&accion=Listar").forward(request, response);
                     break;
                 case "Editar":
+                    ide= Integer.parseInt(request.getParameter("id"));
+                    EmpleadoDTO e=emdao.read(ide);
+                    request.setAttribute("empleado", e);
+                    request.getRequestDispatcher("Controlador?menu=Empleado&accion=Listar").forward(request, response);                   
                     break;
                 case "Eliminar":
+                    ide= Integer.parseInt(request.getParameter("id"));
+                    emdao.delete(ide);
+                    request.getRequestDispatcher("Controlador?menu=Empleado&accion=Listar").forward(request, response);                   
+                    
+                    break;
+                case "Actualizar":
+                    String dni1 = request.getParameter("txtDni");
+                    String nombre1 = request.getParameter("txtNombre");
+                    String telefono1 = request.getParameter("txtTel");
+                    String estado1 = request.getParameter("txtEstado");
+                    String user1 = request.getParameter("txtUser");
+                    em.setCedula(dni1);
+                    em.setNombre(nombre1);
+                    em.setTelefono(telefono1);
+                    em.setEstado(estado1);
+                    em.setUser(user1);
+                    emdao.update(em);
+                    request.getRequestDispatcher("Controlador?menu=Empleado&accion=Listar").forward(request, response);                  
                     break;
                 default:
 

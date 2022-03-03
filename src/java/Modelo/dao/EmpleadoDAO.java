@@ -94,9 +94,9 @@ public class EmpleadoDAO{
     }
 
 
-    public EmpleadoDTO read(EmpleadoDTO filtro) {
+    public EmpleadoDTO read(int id) {
     EmpleadoDTO v=new EmpleadoDTO();
-        String sql = "select * from empleado where Dni=" + 1;
+        String sql = "select * from empleado where IdEmpleado=" + id;
         try {
             con = acceso.getCnn();
             ps = con.prepareStatement(sql);
@@ -140,13 +140,12 @@ public class EmpleadoDAO{
     }
 
 
-    public boolean delete(EmpleadoDTO item) {
-        int r=0;
+    public boolean delete(int id) {
         String sql = "delete from empleado where IdEmpleado=?";
         try {
             con = acceso.getCnn();
             ps = con.prepareStatement(sql);
-            ps.setInt(1, r);
+            ps.setInt(1, id);
             ps.executeUpdate();
         } catch (SQLException e) {
         }

@@ -14,14 +14,41 @@
         <title>Vista de productos</title>
     </head>
     <body>
+        <div class="d-flex">
+            <div class="card col-sm-6">
+            <div class="card-body">
+                <form>
+                    <div class="form-group">
+                        <label>Dni</label>
+                        <input type="text" value="${empleado.getCedula()}" name="txtDni" class="form-control">
+                    </div>
+                    <div class="form-group">
+                        <label>Nombre</label>
+                        <input type="text" value="${empleado.getNombre()}" name="txtNombre" class="form-control">
+                    </div>
+                    <div class="form-group">
+                        <label>Telefono</label>
+                        <input type="text" value="${empleado.getTelefono()}"name="txtTelefono" class="form-control">
+                    </div>
+                    <div class="form-group">
+                        <label>Estadp</label>
+                        <input type="text" value="${empleado.getEstado()}"name="txtEstado" class="form-control">
+                    </div>
+                    <div class="form-group">
+                        <label>User</label>
+                        <input type="text" value="${empleado.getUser()}"name="txtUser" class="form-control">
+                    </div>
+                    <input type="submit" name="accion" value="Agregar" class="btn btn-info">
+                    <input type="submit" name="accion" value="Actualizar" class="btn btn-info">
+                </form>
+            </div>
+        </div>
         <form action = "Controlador?menu=empleado" method ="POST">
             
         </form>
-        <div class="container">
-            <div class="row"><h1>Productos</h1></div>
-            <div class="row">
-                <div class="card-body">
-                    <table class="table table-hover">
+        
+        <div class="col-sm-8">
+            <table class="table table-hover">
                         <thead>
                             <tr>
                                 <th>ID</th>
@@ -43,14 +70,22 @@
                                     <td>${objP.getEstado()}</td>                    
                                     <td>${objP.getUser()}</td>                    
                                     <td>
-                                        <a type="button" class="btn btn-outline-success" style="height: 35px; width: 80px;" href="ProductoCTO?accion=ver&id=${objP.getId_prod()}">Ver</a>                  
-                                        <a type="button" class="btn btn-outline-warning" style="height: 35px; width: 80px;" href="ProductoCTO?accion=editar&id=${objP.getId_prod()}">Editar</a>                    
-                                        <a type="button" class="btn btn-outline-danger" style="height: 35px; width: 80px;" href="ProductoCTO?accion=eliminar&id=${objP.getId_prod()}">Eliminar</a>
+                                        <a type="button" class="btn btn-outline-success" style="height: 35px; width: 80px;" href="Controlador?menu=Empleado&accion=Editar&id=${objP.getId_prod()}">Ver</a>                  
+                                        <a type="button" class="btn btn-outline-warning" style="height: 35px; width: 80px;" href="Controlador?menu=Empleado&accion=Editar&id=${objP.getId_prod()}">Editar</a>                    
+                                        <a type="button" class="btn btn-outline-danger" style="height: 35px; width: 80px;" href="Controlador?menu=Empleado&accion=Eliminar&id=${objP.getId_prod()}">Eliminar</a>
                                     </td>                    
                                 </tr>
                             </c:forEach>
                         </tbody>
                     </table>
+        </div>
+        </div>
+        
+        <div class="container">
+            <div class="row"><h1>Productos</h1></div>
+            <div class="row">
+                <div class="card-body">
+                    
                 </div>
             </div>
         </div>
