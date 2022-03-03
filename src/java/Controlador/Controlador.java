@@ -27,80 +27,11 @@ public class Controlador extends HttpServlet {
 
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        String accion = request.getParameter("accion");
         String menu = request.getParameter("menu");
-
+        String accion = request.getParameter("accion");
         if (menu.equals("Principal")) {
-            System.out.println("Principal");
             request.getRequestDispatcher("Principal.jsp").forward(request, response);
-        }
-
-        if (menu.equals("Producto")) {
-            System.out.println("Producto");
-            request.getRequestDispatcher("Producto.jsp").forward(request, response);
-        }
-
-        if (menu.equals("Empleado")) {
-            switch (accion) {
-                case "Listar":
-                    List lista = emdao.readAll();
-                    request.setAttribute("empleados", lista);
-                    break;
-                case "Agregar":
-                    String dni = request.getParameter("txtDni");
-                    String nombre = request.getParameter("txtNombre");
-                    String telefono = request.getParameter("txtTel");
-                    String estado = request.getParameter("txtEstado");
-                    String user = request.getParameter("txtUser");
-                    em.setCedula(dni);
-                    em.setNombre(nombre);
-                    em.setTelefono(telefono);
-                    em.setEstado(estado);
-                    em.setUser(user);
-                    emdao.create(em);
-                    request.getRequestDispatcher("Controlador?menu=Empleado&accion=Listar").forward(request, response);
-                    break;
-                case "Editar":
-                    ide= Integer.parseInt(request.getParameter("id"));
-                    EmpleadoDTO e=emdao.read(ide);
-                    request.setAttribute("empleado", e);
-                    request.getRequestDispatcher("Controlador?menu=Empleado&accion=Listar").forward(request, response);                   
-                    break;
-                case "Eliminar":
-                    ide= Integer.parseInt(request.getParameter("id"));
-                    emdao.delete(ide);
-                    request.getRequestDispatcher("Controlador?menu=Empleado&accion=Listar").forward(request, response);                   
-                    
-                    break;
-                case "Actualizar":
-                    String dni1 = request.getParameter("txtDni");
-                    String nombre1 = request.getParameter("txtNombre");
-                    String telefono1 = request.getParameter("txtTel");
-                    String estado1 = request.getParameter("txtEstado");
-                    String user1 = request.getParameter("txtUser");
-                    em.setCedula(dni1);
-                    em.setNombre(nombre1);
-                    em.setTelefono(telefono1);
-                    em.setEstado(estado1);
-                    em.setUser(user1);
-                    emdao.update(em);
-                    request.getRequestDispatcher("Controlador?menu=Empleado&accion=Listar").forward(request, response);                  
-                    break;
-                default:
-
-            }
-            request.getRequestDispatcher("Empleado.jsp").forward(request, response);
-        }
-
-        if (menu.equals("Clientes")) {
-            System.out.println("Clientes");
-            request.getRequestDispatcher("Clientes.jsp").forward(request, response);
-        }
-
-        if (menu.equals("RegistrarVenta")) {
-            System.out.println("Venta");
-            request.getRequestDispatcher("RegistrarVenta.jsp").forward(request, response);
-        }
+        } 
 
     }
 

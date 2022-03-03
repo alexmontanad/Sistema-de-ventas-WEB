@@ -11,28 +11,23 @@ package Modelo.dto;
  */
 public class EmpleadoDTO {
     int id;
-    String cedula;
-    String nombre;
-    String telefono;
+    String dni;
+    String nom;
+    String tel;
     String estado;
     String user;
 
     public EmpleadoDTO() {
     }
 
-    public EmpleadoDTO(int id, String cedula, String nombre, String user) {
+    public EmpleadoDTO(int id, String dni, String nom, String tel, String estado, String user) {
         this.id = id;
-        this.cedula = cedula;
-        this.nombre = nombre;
+        this.dni = dni;
+        this.nom = nom;
+        this.tel = tel;
+        this.estado = estado;
         this.user = user;
     }
-
-    public EmpleadoDTO(String user, String cedula) {
-        this.cedula = cedula;
-        this.user = user;
-    }
-    
-    
 
     public int getId() {
         return id;
@@ -42,28 +37,28 @@ public class EmpleadoDTO {
         this.id = id;
     }
 
-    public String getCedula() {
-        return cedula;
+    public String getDni() {
+        return dni;
     }
 
-    public void setCedula(String cedula) {
-        this.cedula = cedula;
+    public void setDni(String dni) {
+        this.dni = dni;
     }
 
-    public String getNombre() {
-        return nombre;
+    public String getNom() {
+        return nom;
     }
 
-    public void setNombre(String nombre) {
-        this.nombre = nombre;
+    public void setNom(String nom) {
+        this.nom = nom;
     }
 
-    public String getTelefono() {
-        return telefono;
+    public String getTel() {
+        return tel;
     }
 
-    public void setTelefono(String telefono) {
-        this.telefono = telefono;
+    public void setTel(String tel) {
+        this.tel = tel;
     }
 
     public String getEstado() {
@@ -81,5 +76,5 @@ public class EmpleadoDTO {
     public void setUser(String user) {
         this.user = user;
     }
-      
+    
 }
