@@ -1,8 +1,3 @@
-<%-- 
-    Document   : RegistrarVenta
-    Created on : 26/02/2022, 03:38:44 AM
-    Author     : Alex
---%>
 
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
@@ -10,7 +5,7 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">      
         <title>VENTAS</title>
         <style>
             @media print{
@@ -19,11 +14,9 @@
                 }
             }
         </style>
-       
+   
     </head>
     <body>
-        <br/>
-        <br/>
         <div class="d-flex">
             <div class="col-lg-5 parte01">
                 <div class="card">
@@ -144,12 +137,12 @@
                 var formulario = document.getElementById("generarVenta");
                 var dniCliente = document.getElementById("dniCliente").value;
                 var nombreDelCliente = document.getElementById("nombreDelCliente").value;
-                    if(stock < cant || stock == 0) {
+                    if(stock < cant || stock === 0) {
                             alert("Este producto no posee stock o la cantidad solicitada es mayor al stock disponible");
                             document.getElementById("cant").value = "0";
                             document.getElementById("stock").value = "";
                             document.getElementById("dniCliente").value = dniCliente;
-                            document.getElementById("nombreDelCliente").value = nombreDelCliente
+                            document.getElementById("nombreDelCliente").value = nombreDelCliente;
                             e.preventDefault();
                             return false;
                     } else {

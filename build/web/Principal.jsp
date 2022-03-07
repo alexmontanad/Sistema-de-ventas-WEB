@@ -1,6 +1,6 @@
 <%-- 
     Document   : Principal
-    Created on : 26/02/2022, 01:21:51 AM
+    Created on : 11/02/2022, 01:21:51 AM
     Author     : Alex
 --%>
 
@@ -26,7 +26,7 @@
                         <a style="margin-left: 10px; border: none" class="btn btn-outline-light" href="ControladorCliente?menu=Cliente&accion=Listar" target="myFrame">Clientes</a>
                     </li>
                     <li class="nav-item">
-                        <a style="margin-left: 10px; border: none" class="btn btn-outline-light" href="ControladorVentas?menu=NuevaVenta&accion=default" target="myFrame">Nueva Venta</a>
+                        <a style="margin-left: 10px; border: none" class="btn btn-outline-light" href="ControladorVentas?menu=NuevaVenta&accion=d" target="myFrame">Nueva Venta</a>
                     </li>
 
                 </ul>                
